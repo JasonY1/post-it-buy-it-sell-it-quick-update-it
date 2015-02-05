@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205021724) do
+ActiveRecord::Schema.define(version: 20150205023841) do
 
   create_table "carts", force: true do |t|
     t.datetime "created_at"
@@ -65,6 +65,28 @@ ActiveRecord::Schema.define(version: 20150205021724) do
     t.integer  "category"
   end
 
+  create_table "profiles", force: true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "statename"
+    t.string   "zipcode"
+    t.date     "birthdate"
+    t.string   "phonenum"
+    t.string   "prescription_card"
+    t.string   "prescription_num"
+    t.string   "prescription_exp"
+    t.boolean  "verified",          default: false
+    t.string   "idcard"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -76,6 +98,10 @@ ActiveRecord::Schema.define(version: 20150205021724) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
