@@ -1,8 +1,6 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
-  
-  validates_presence_of :firstname, :lastname, :prescription_num
-  
+  validates_presence_of :firstname, :lastname, :prescription_num, :phonenum, :address1, :city, :zipcode, :prescription_card, :idcard
   ######################################################
   # Paperclip Image Attachment
   

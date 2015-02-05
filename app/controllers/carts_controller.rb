@@ -1,16 +1,26 @@
-class Cart < ActiveRecord::Base
-  has_many :line_items, dependent: :destroy
-  
-  def add_product(product_id)
-    current_item = line_items.find_by(product_id: product_id)
-    if current_item
-      current_item.quantity += 1
-    else
-      current_item = line_items.build(product_id: product_id)
+class CartsController < ApplicationController
+  include CurrentCart
+  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart 
+
+  def destroy
+    @cart.destroy if @cart.id == session[:cart_id]
+    session[:cart_id] = nil
+    respond_to do |format|
+      format.html { redirect_to store_index_path }
+      format.json { head :no_content }
     end
-    current_item
   end
-  def total_price
-    line_items.to_a.sum { |item| item.total_price }
-  end
+  
+  private
+
+    def cart_params
+      params.require(:cart).permit()
+    end
+    
+    def invalid_cart
+      logger.error "Attempt to access invalid cart #{params[:id]}"
+      redirect_to store_url, notice: 'Invalid cart'
+    end
 end
+

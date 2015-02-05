@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_filter :authenticate_user!
-  
+
   def index
   end
 
@@ -12,11 +12,6 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     @profile = current_user.build_profile
-    
-  end
-
-  # GET /profiles/1/edit
-  def edit
   end
 
   # POST /profiles
@@ -30,7 +25,7 @@ class ProfilesController < ApplicationController
         format.json { render action: 'index', status: :created, location: @profile }
       else
         format.html { render action: 'new', location: @profile }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
+        format.json { render json: current_user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -39,7 +34,7 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1.json
   def update
     @profile = current_user.build_profile(profile_params)
-    raise
+
     respond_to do |format|
       if @profile.save
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
@@ -47,7 +42,7 @@ class ProfilesController < ApplicationController
       else
         raise
         format.html { render action: 'edit' }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
+        format.json { render json: current_user.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -2,7 +2,7 @@
 	<p id="notice"><%= notice %></p>
 <% end %>
 
-<h1>Your Catalog</h1>
+<h1>Menu</h1>
 
 <div class="table-responsive">
 	<table class="table table-hover">
@@ -16,20 +16,22 @@
 				<th>OZ</th>
 			</tr>
 		</thead>
-		<!--
-		<%#= @products.each do |product| %>
+		<%= @products.each do |product| %>
 			<tbody>
 				<tr>
-					<td><%#= product.title %></td>
-					<td><%#= product.ppgram %></td>
-					<td><%#= product.ppeighth %></td>
-					<td><%#= product.ppquad %></td>
-					<td><%#= product.pphalf %></td>
-					<td><%#= product.ppoz %></td>
+					<td><%= product.title %></td>
+					<td><%= product.ppgram %></td>
+					<td><%= product.ppeighth %></td>
+					<td><%= product.ppquad %></td>
+					<td><%= product.pphalf %></td>
+					<td><%= product.ppoz %></td>
 				</tr>
-				<span><%#= button_to 'Add to Cart', line_items_path(product_id: product)%></span>
+				<span><%= button_to 'Add to Cart', line_items_path(product_id: product)%></span>
 			</tbody>
-		<%# end %>
-		-->
+		<% end %>
 	</table>
+	
+	
 </div>
+
+<!-- Partials >
