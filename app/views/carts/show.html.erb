@@ -1,18 +1,14 @@
-<% if notice %>
 <p id="notice"><%= notice %></p>
-<% end %>
 
-<h2>Your Cart</h2>
-<table>
-	<%= render @cart %>
-	
-	<tr class="total_line">
-		<td colspan="2">Total</td>
-		<td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
-	</tr>	
-</table>
+<p>
+  <strong>Product:</strong>
+  <%= @line_item.product %>
+</p>
 
-<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }%>
+<p>
+  <strong>Cart:</strong>
+  <%= @line_item.cart %>
+</p>
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<%= link_to 'Edit', edit_line_item_path(@line_item) %> |
+<%= link_to 'Back', line_items_path %>
