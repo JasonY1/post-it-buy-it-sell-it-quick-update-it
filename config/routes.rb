@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-  devise_for :users, path: 'register'
-  
-  resources :users do
-    resource :profile
-  end
-  
+
+  # devise_for :admin_users, ActiveAdmin::Devise.config
+  # ActiveAdmin.routes(self)
+  # devise_for :users, path: 'register'
+#   
+  # resources :users do
+    # resource :profile
+  # end
+#   
   resources :products
   resources :orders
   resources :line_items
