@@ -17,7 +17,6 @@ class CreateProducts < ActiveRecord::Migration
       t.decimal :ppoz, precision: 8, scale: 2
       t.string :slug
       t.boolean :show, default: true
-      t.integer :category 
 
       t.timestamps
     end
