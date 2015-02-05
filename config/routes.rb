@@ -1,13 +1,6 @@
 Rails.application.routes.draw do
   
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-  devise_for :users, path: 'register'
-  
-  resources :users do
-    resource :profile
-  end
-  
+  devise_for :users
   resources :products
   resources :orders
   resources :line_items
@@ -16,7 +9,6 @@ Rails.application.routes.draw do
   root                    'static_pages#home'
   get 'about',        to: 'static_pages#about'
   get 'contact',      to: 'static_pages#contact'
-  get 'store',        to: 'store#index'
   get 'store/index'
 
 
