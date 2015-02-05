@@ -16,6 +16,7 @@ class CombineItemsInCart < ActiveRecord::Migration
       end
     end
   end
+ 
   
   def down
     # split items with quantity > 1 into multiple items
