@@ -18,20 +18,18 @@
 				<li>
 					<%= link_to "Store",      store_index_path %>
 				</li>
-				<!--
-				<%# if user_signed_in? %>
+				<% if user_signed_in? %>
 					<li>
-						<%#= link_to 'My Account', user_path(current_user) %>
+						<%= link_to 'My Account', user_path(current_user) %>
 					</li>
 					<li>
-						<%#= link_to "Logout", destroy_user_session_path %>
+						<%= link_to "Logout", destroy_user_session_path %>
 					</li>
-				<%# else %>
+				<% else %>
 					<li>
-						<%#= link_to "Login/Register", new_user_session_path %>
+						<%= link_to "Login/Register", new_user_session_path %>
 					</li>
-			  <%# end %>
-			 -->
+			  <% end %>
 			</ul>
 
 		</div>
