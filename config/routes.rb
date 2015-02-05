@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   resources :line_items
   resources :carts
   
-  resources :users do
+  resources :users, shallow: true do
     resource :profile
+    resources :orders
   end
 
   root                    'static_pages#home'
