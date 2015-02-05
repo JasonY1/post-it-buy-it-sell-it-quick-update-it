@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  devise_for :users, path: 'register'
+  
   resources :products
   resources :orders
   resources :line_items
   resources :carts
+  
+  resources :users do
+    resource :profile
+  end
 
   root                    'static_pages#home'
   get 'about',        to: 'static_pages#about'
