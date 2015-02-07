@@ -1,4 +1,4 @@
-class CartsController < ApplicationController
+class CartsController < InheritedResources::Base
   include CurrentCart
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart 
