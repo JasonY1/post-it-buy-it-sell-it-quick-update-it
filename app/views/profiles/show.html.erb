@@ -1,17 +1,19 @@
 <h1>Logged-in as <%= current_user.email %></h1>
 
+
+<!-- Photos are not lining up -->
 <div>
   <% if current_user.profile.nil? %>
   <% else %>
     Verified: <%= current_user.profile.verified %><br />
     Name: <%= current_user.profile.firstname %> <%= current_user.profile.lastname %><br />
     Prescription ID: <% if current_user.profile.prescription_card.present?%>
-                    <%= image_tag current_user.profile.prescription_card.url %><br />
+                    <span><%= image_tag current_user.profile.prescription_card.url %></span><br />
                     <% else %>
                       None. Please update your profile<br/>
                     <% end %>
     Valid ID Card:  <% if current_user.profile.idcard.present? %>
-                      <%= image_tag current_user.profile.idcard.url %> <br />
+                      <span><%= image_tag current_user.profile.idcard.url %></span><br />
                     <% else %>
                       None. Please update your profile<br/>
                     <% end %>

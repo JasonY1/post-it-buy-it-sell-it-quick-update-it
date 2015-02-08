@@ -3,6 +3,10 @@ class ProfilesController < ApplicationController
 
   def index
   end
+  
+  def edit
+    
+  end
 
   # GET /profiles/1
   def show

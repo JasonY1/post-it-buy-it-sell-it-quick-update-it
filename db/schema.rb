@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207001353) do
+ActiveRecord::Schema.define(version: 20150207193119) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -87,17 +87,21 @@ ActiveRecord::Schema.define(version: 20150207001353) do
     t.string   "image_url"
     t.string   "link"
     t.integer  "inventory"
-    t.decimal  "ppunit",      precision: 8, scale: 2
-    t.decimal  "ppgram",      precision: 8, scale: 2
-    t.decimal  "ppeighth",    precision: 8, scale: 2
-    t.decimal  "ppquad",      precision: 8, scale: 2
-    t.decimal  "pphalf",      precision: 8, scale: 2
-    t.decimal  "ppoz",        precision: 8, scale: 2
+    t.decimal  "ppunit",                 precision: 8, scale: 2
+    t.decimal  "ppgram",                 precision: 8, scale: 2
+    t.decimal  "ppeighth",               precision: 8, scale: 2
+    t.decimal  "ppquad",                 precision: 8, scale: 2
+    t.decimal  "pphalf",                 precision: 8, scale: 2
+    t.decimal  "ppoz",                   precision: 8, scale: 2
     t.string   "slug"
-    t.boolean  "show",                                default: true
+    t.boolean  "show",                                           default: true
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "category"
+    t.integer  "category_id"
+    t.string   "image_url_file_name"
+    t.string   "image_url_content_type"
+    t.integer  "image_url_file_size"
+    t.datetime "image_url_updated_at"
   end
 
   create_table "profiles", force: true do |t|
@@ -113,11 +117,19 @@ ActiveRecord::Schema.define(version: 20150207001353) do
     t.string   "prescription_card"
     t.string   "prescription_num"
     t.string   "prescription_exp"
-    t.boolean  "verified",          default: false
+    t.boolean  "verified",                       default: false
     t.string   "idcard"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "idcard_file_name"
+    t.string   "idcard_content_type"
+    t.integer  "idcard_file_size"
+    t.datetime "idcard_updated_at"
+    t.string   "prescription_card_file_name"
+    t.string   "prescription_card_content_type"
+    t.integer  "prescription_card_file_size"
+    t.datetime "prescription_card_updated_at"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
