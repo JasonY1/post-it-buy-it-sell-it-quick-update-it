@@ -3,13 +3,13 @@ development:
   encoding: unicode
   database: dabcab_development
   pool: 5
-  username: boom
-  password:
+  username: dabcab
+  password: somepassword
 
 test:
   adapter: postgresql
   encoding: unicode
   database: dabcab_test
   pool: 5
-  username: boom
-  password:
+  username: dabcab
+  password: somepassword
