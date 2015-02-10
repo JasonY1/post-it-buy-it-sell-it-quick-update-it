@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207193119) do
+ActiveRecord::Schema.define(version: 20150210215650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -90,14 +91,8 @@ ActiveRecord::Schema.define(version: 20150207193119) do
     t.string   "image_url"
     t.string   "link"
     t.integer  "inventory"
-    t.decimal  "ppunit",                 precision: 8, scale: 2
-    t.decimal  "ppgram",                 precision: 8, scale: 2
-    t.decimal  "ppeighth",               precision: 8, scale: 2
-    t.decimal  "ppquad",                 precision: 8, scale: 2
-    t.decimal  "pphalf",                 precision: 8, scale: 2
-    t.decimal  "ppoz",                   precision: 8, scale: 2
     t.string   "slug"
-    t.boolean  "show",                                           default: true
+    t.boolean  "show",                   default: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
@@ -105,7 +100,10 @@ ActiveRecord::Schema.define(version: 20150207193119) do
     t.string   "image_url_content_type"
     t.integer  "image_url_file_size"
     t.datetime "image_url_updated_at"
+    t.hstore   "prices"
   end
+
+  add_index "products", ["prices"], name: "products_prices", using: :gin
 
   create_table "profiles", force: true do |t|
     t.string   "firstname"
