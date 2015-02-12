@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.4'
 gem 'pg'
 # hstore for prices
-gem 'activerecord-postgres-hstore'
+gem 'activeadmin_hstore_editor'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass', '~> 3.2'

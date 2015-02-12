@@ -8,25 +8,15 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Flowers</th>
-        <th>G</th>
-        <th>1/8</th>
-        <th>1/4</th>
-        <th>1/2</th>
-        <th>OZ</th>
+        <th>Product Type</th>
+        <th>variable price1</th>
+        <th>variable price2</th>
+        <th>variable price3</th>
       </tr>
     </thead>
     <%= @products.each do |product| %>
       <tbody>
-        <tr><!--
-          <td><%= product.title %></td>
-          <td><%= product.ppgram %></td>
-          <td><%= product.ppeighth %></td>
-          <td><%= product.ppquad %></td>
-          <td><%= product.pphalf %></td>
-          <td><%= product.ppoz %></td>
-        -->
-        </tr>
+        
       </tbody>
     <% end %>
   </table>

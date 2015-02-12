@@ -1,6 +1,7 @@
 ActiveAdmin.register Product do
-  permit_params :title, :description, :strain, :thc, :link, :inventory, :price, :slug, :show, :image_url
+  permit_params :price
 
+  hstore_editor
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -13,6 +14,11 @@ ActiveAdmin.register Product do
   #   permitted << :other if resource.something?
   #   permitted
   # end
+  form do |f|
+    f.inputs do
+      f.input :prices, as: :hstore
+    end
 
-
+    f.actions
+  end
 end

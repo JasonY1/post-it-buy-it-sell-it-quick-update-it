@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210215650) do
+ActiveRecord::Schema.define(version: 20150212081230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,13 +85,9 @@ ActiveRecord::Schema.define(version: 20150210215650) do
   create_table "products", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "type"
-    t.string   "strain"
-    t.decimal  "thc"
     t.string   "image_url"
     t.string   "link"
     t.integer  "inventory"
-    t.string   "slug"
     t.boolean  "show",                   default: true
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -101,8 +97,10 @@ ActiveRecord::Schema.define(version: 20150210215650) do
     t.integer  "image_url_file_size"
     t.datetime "image_url_updated_at"
     t.hstore   "prices"
+    t.hstore   "details"
   end
 
+  add_index "products", ["prices"], name: "products_details", using: :gin
   add_index "products", ["prices"], name: "products_prices", using: :gin
 
   create_table "profiles", force: true do |t|
