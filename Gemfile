@@ -26,10 +26,19 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
-  gem 'spring'
   gem 'better_errors'
-  gem 'rspec-rails', '2.13.1'
+end
+
+group :developpment, :test do
+  gem 'rspec-rails', '3.2'
   gem 'binding_of_caller'
+  gem 'factory_girl'
+  gem 'capybara'
+end
+
+group :test do
+  gem 'capybara-webkit'
+  
 end
 
 # Devise Authentication and CanCan Authorization
