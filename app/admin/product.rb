@@ -1,5 +1,5 @@
 ActiveAdmin.register Product do
-  permit_params :price
+  permit_params :title, :description, :link, :inventory, :prices, :details, :slug, :show, :image_url
 
   hstore_editor
   # See permitted parameters documentation:
@@ -16,7 +16,14 @@ ActiveAdmin.register Product do
   # end
   form do |f|
     f.inputs do
+      f.input :title
+      f.input :description
+      f.input :link
       f.input :prices, as: :hstore
+      f.input :details, as: :hstore
+      f.input :show
+      f.input :image_url
+      f.input :inventory
     end
 
     f.actions

@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.4'
 gem 'pg'
 # hstore for prices
+gem 'activeadmin', github: 'activeadmin'
 gem 'activeadmin_hstore_editor'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -27,17 +28,19 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
   gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :developpment, :test do
-  gem 'rspec-rails', '3.2'
-  gem 'binding_of_caller'
-  gem 'factory_girl'
-  gem 'capybara'
+  gem 'rspec-rails', '3.1'
+  gem "factory_girl_rails"
+  gem 'web-console', '~> 2.0'
 end
 
 group :test do
-  gem 'capybara-webkit'
+  gem 'shoulda-matchers', require: false
+  gem 'shoulda'
+  gem 'capybara'
   
 end
 
@@ -47,7 +50,7 @@ gem 'devise'
 gem 'cancan'
 gem "paperclip", "~> 4.2"
 
-gem 'activeadmin', github: 'activeadmin'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

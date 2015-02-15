@@ -21,8 +21,8 @@
 </div>
 
 <% if current_user.profile.nil? %>
-  <%= link_to 'Create Profile', new_user_profile_path(current_user), class: "btn btn-default" %>	
+  <%= link_to 'Create Profile', new_user_profile_path(current_user), id: "nedit_profile", class: "btn btn-default", remote: true %>	
 <% else %>
-  <%= link_to 'Edit Profile', edit_user_profile_path(current_user), class: "btn btn-default" %>
+  <%= link_to 'Edit Profile', edit_user_profile_path(current_user), id: "nedit_profile", class: "btn btn-default", remote: true %>
 <% end %>
 

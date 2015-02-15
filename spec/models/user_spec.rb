@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "Create a user" do
+    describe "With valid information" do
+      @user = FactoryGirl.create(:user)
+      it { expect(User.count).to eq(1)}
+      it { expect(User.save).to be_true }
+    end
+  end
 end

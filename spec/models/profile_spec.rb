@@ -1,5 +1,16 @@
 require 'spec_helper'
 
-describe Profile do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe ProfilesController, type: :controller do
+  describe "GET 'new'" do
+    context "with user logged-in" do
+      let(:user) { create(:user)}
+      
+      context "no profile" do
+        before do
+          get :new
+        end
+        it { expect(response.status).to eq(302) }
+      end
+    end
+  end
 end
