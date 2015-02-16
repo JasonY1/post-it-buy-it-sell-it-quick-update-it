@@ -27,9 +27,11 @@ class ProfilesController < ApplicationController
       if @profile.save
         format.html { redirect_to user_profile_path, notice: 'Profile was successfully created.' }
         format.json { render action: 'index', status: :created, location: @profile }
+        format.js
       else
         format.html { render action: 'new', location: @profile }
         format.json { render json: current_user.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -43,10 +45,12 @@ class ProfilesController < ApplicationController
       if @profile.save
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
         format.json { head :no_content }
+        format.js
       else
         raise
         format.html { render action: 'edit' }
         format.json { render json: current_user.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

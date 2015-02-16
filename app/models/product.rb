@@ -16,6 +16,19 @@ class Product < ActiveRecord::Base
     Product.order(:updated_at).last
   end
   
+  # Product.prices.each do |key|
+    # attr_accessible key
+    # scope "has_#{key}", lambda { |value| where("prices @> (?:?)", key, value) }
+#     
+    # define_method(key) do
+      # prices && prices[key]
+    # end
+#     
+    # define_method("#{key}=") do |value|
+      # self.prices = (prices || P{}).merge(key: value)
+    # end
+  # end
+  
   private
     # ensure that there are no line items referencing this product
     

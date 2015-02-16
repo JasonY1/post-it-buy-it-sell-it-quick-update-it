@@ -8,17 +8,23 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Product Type</th>
-        <th>variable price1</th>
-        <th>variable price2</th>
-        <th>variable price3</th>
+        <th>Title</th>
+        <% @products.each do |f| %>
+          <% f.prices.each_key do |ff| %>
+            <th><%= ff %></th>
+          <% end %>
+        <% end %>
       </tr>
     </thead>
-    <%= @products.each do |product| %>
       <tbody>
-        
+        <tr>
+          <% @products.each do |f| %>
+          <th><%= f.title %></th>
+            <% f.prices.each_value do |ff| %>
+              <th><%= ff %></th>
+            <% end %>
+          <% end %>
       </tbody>
-    <% end %>
   </table>
 </div>
 
