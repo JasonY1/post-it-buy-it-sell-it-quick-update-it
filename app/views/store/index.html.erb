@@ -9,19 +9,19 @@
     <thead>
       <tr>
         <th>Title</th>
-        <% @products.each do |f| %>
-          <% f.prices.each_key do |ff| %>
-            <th><%= ff %></th>
+        <% @products.each do |product| %>
+          <% product.prices.each_key do |keys| %>
+            <th><%= keys %></th>
           <% end %>
         <% end %>
       </tr>
     </thead>
       <tbody>
         <tr>
-          <% @products.each do |f| %>
-          <th><%= f.title %></th>
-            <% f.prices.each_value do |ff| %>
-              <th><%= ff %></th>
+          <% @products.each do |product| %>
+          <th><%= product.title %></th>
+            <% product.prices.each_value do |values| %>
+              <th><%= values %></th>
             <% end %>
           <% end %>
       </tbody>
