@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users, path: 'register'
+  devise_for :users, path: 'register', controllers: { sessions: "users/sessions" } do
+    
+  end
   
   resources :products
   resources :orders

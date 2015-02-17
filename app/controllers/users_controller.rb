@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
+  
+  def new
+    redirect_to '/register/sign_in'
+  end
 
   def show
     @user = current_user
@@ -7,7 +11,7 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.build_profile
+    @profile = Profile.find_by(user_id: @user.id )
 
     respond_to do |format|
       if @user.update_attributes(user_params)

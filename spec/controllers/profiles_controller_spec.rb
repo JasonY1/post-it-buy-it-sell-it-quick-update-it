@@ -4,7 +4,8 @@ RSpec.describe ProfilesController, type: :controller do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:profile) { FactoryGirl.build(:profile, user: user) }
   describe "GET #show" do
-  it "assigns the requested profile to @profile" do
+    before { get :show, user_id: user.id }
+    it "assigns the requested profile to @profile" do
       get :show, user_id: user.id
       assigns(:profile).should eq(profile)
     end
