@@ -8,8 +8,11 @@ FactoryGirl.define do
     address1 "123 Something dr"
     city  "Somewhere"
     zipcode "92322"
-    prescription_card "card.jpg"
-    idcard "id.jpg"
+    prescription_card_file_name { 'presc.jpg' }
+    prescription_card_content_type { 'image/jpeg'}
+    prescription_card_file_size { 1024 }
+    idcard_file_name { 'test.png' }
+    idcard_content_type { 'image/png' }
+    idcard_file_size { 1024 }
   end
 end
-

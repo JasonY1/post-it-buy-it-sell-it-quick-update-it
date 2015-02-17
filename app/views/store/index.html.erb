@@ -19,9 +19,9 @@
       <tbody>
         <tr>
           <% @products.each do |product| %>
-          <th><%= product.title %></th>
+          <td><%= product.title %></td>
             <% product.prices.each_value do |values| %>
-              <th><%= values %></th>
+              <td><%= values %></td>
             <% end %>
           <% end %>
       </tbody>

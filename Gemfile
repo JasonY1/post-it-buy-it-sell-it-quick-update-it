@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
-gem 'pg'
+gem 'pg', '0.18.1'
+gem 'faker', '~> 1.4.3'
 # hstore for prices
 gem 'activeadmin', github: 'activeadmin'
 gem 'activeadmin_hstore_editor'
@@ -17,7 +18,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '3.1.2'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -31,7 +32,7 @@ group :development do
   gem 'binding_of_caller'
 end
 
-group :developpment, :test do
+group :development, :test do
   gem 'rspec-rails', '3.1'
   gem "factory_girl_rails"
   gem 'web-console', '~> 2.0'
@@ -39,15 +40,15 @@ end
 
 group :test do
   gem 'shoulda-matchers', require: false
-  gem 'shoulda'
-  gem 'capybara'
+  gem 'shoulda', '3.5.0'
+  gem 'capybara', '2.4.4'
   
 end
 
 # Devise Authentication and CanCan Authorization
-gem 'devise'
+gem 'devise', '3.4.1'
 
-gem 'cancan'
+gem 'cancan', "~> 1.6"
 gem "paperclip", "~> 4.2"
 
 
