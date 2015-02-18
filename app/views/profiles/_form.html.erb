@@ -1,4 +1,4 @@
-<%= form_for current_user, html: { class: "form-horizontal col-sm-12", multipart: true } do |f| %>
+<%= form_for current_user, html: { class: "form-horizontal col-sm-12"}, multipart: true, remote: true, authenticity_token: true do |f| %>
   <%= f.fields_for :profile do |m| %>
 	<% if current_user.profile.errors.any? %>
     <div id="error_explanation">
@@ -52,9 +52,9 @@
     <%= m.file_field :prescription_card, class: "col-sm-10 col-xs-12" %>
   </div>
   
-  <%if false %>
+  <% if current_user.profile.prescription_card.exists? %>
     <div class="form-group">
-      <%= image_tag m.prescription_card.url, class: "col-sm-offset-2 col-xs-12"%>
+      <%= image_tag current_user.profile.prescription_card.url(:normal), class: "col-sm-offset-2 image-responsive"%>
     </div>
   <% end %>
   
@@ -63,9 +63,9 @@
     <%= m.file_field :idcard, class: "col-sm-10 col-xs-12" %>
   </div>
 
-  <%if false %>
+  <% if current_user.profile.idcard.exists? %>
     <div class="form-group">
-      <%= image_tag m.idcard.url, class: "col-sm-offset-2 col-xs-12"%>
+      <%= image_tag current_user.profile.idcard.url(:normal), class: "col-sm-offset-2 image-responsive"%>
     </div>
   <% end %>
   

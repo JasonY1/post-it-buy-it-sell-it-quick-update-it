@@ -1,11 +1,15 @@
 require 'spec_helper'
 
 describe User do
-  describe "Create a user" do
-    context "With valid information" do
-      @user = create(:user)
-      it { expect(User.count).to eq(1)}
-      it { expect(User.save).to be_true }
+  let(:user) { FactoryGirl.create(:user) }
+  describe "creation" do
+    describe "should be associated with user_id" do
+      before do
+        @profile = FactoryGirl.create(:profile)
+        user.profile = @profile
+      end
+      it { expect(user.profile).to eq @profile }
+      it { expect(user.profile.user_id).to eq @profile.user_id }
     end
   end
 end

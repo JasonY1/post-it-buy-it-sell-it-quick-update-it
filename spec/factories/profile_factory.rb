@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :profile do
-    association :user, factory: :user
+    user_id 55
     firstname "first"
     lastname "last"
     prescription_num "12342141234"

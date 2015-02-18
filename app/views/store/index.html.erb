@@ -10,8 +10,8 @@
       <tr>
         <th>Title</th>
         <% @products.each do |product| %>
-          <% product.prices.each_key do |keys| %>
-            <th><%= keys %></th>
+          <% product.prices.each_key do |tableheader| %>
+            <th></th>
           <% end %>
         <% end %>
       </tr>
@@ -20,8 +20,8 @@
         <tr>
           <% @products.each do |product| %>
           <td><%= product.title %></td>
-            <% product.prices.each_value do |values| %>
-              <td><%= values %></td>
+            <% product.prices.each do |key, value| %>
+              <td><span><%= "#{value} per #{key}" %></span></td>
             <% end %>
           <% end %>
       </tbody>

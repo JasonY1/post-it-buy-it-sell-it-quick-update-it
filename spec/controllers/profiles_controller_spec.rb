@@ -5,10 +5,8 @@ RSpec.describe ProfilesController, type: :controller do
   let!(:profile) { FactoryGirl.build(:profile, user: user) }
   describe "GET #show" do
     before { get :show, user_id: user.id }
-    it "assigns the requested profile to @profile" do
-      get :show, user_id: user.id
-      assigns(:profile).should eq(profile)
-    end
+    it { expect(response).to be_false }
+    
   end
 
   # describe "GET 'new'" do

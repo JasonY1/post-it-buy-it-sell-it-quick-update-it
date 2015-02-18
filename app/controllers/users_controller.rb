@@ -17,9 +17,11 @@ class UsersController < ApplicationController
       if @user.update_attributes(user_params)
         format.html { redirect_to user_profile_path(current_user), notice: 'User was successfully updated.' }
         format.json { head :no_content }
+        format.js
       else
         format.html { redirect_to new_user_profile_path(@user), alert: 'Your Profile was not updated. All fields are required!' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
